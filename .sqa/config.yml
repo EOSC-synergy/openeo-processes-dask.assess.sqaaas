@@ -1,0 +1,62 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.11
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/Open-EO/openeo-processes-dask:
+      branch: main
+      repo: https://github.com/Open-EO/openeo-processes-dask
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/Open-EO/openeo-processes-dask git:
+        commands:
+        - /usr/bin/env sh .sqa/script.cranky-cerulean-dragonfly.sh
+        container: qc.acc_wimpy-linen-mouse
+  QC.Doc:
+    repos:
+      github.com/Open-EO/openeo-processes-dask find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.nerdy-cobalt-emu.sh
+        container: qc.doc_foggy-jade-angora
+      github.com/Open-EO/openeo-processes-dask git:
+        commands:
+        - /usr/bin/env sh .sqa/script.smelly-lemon-frise.sh
+        container: qc.doc_scaly-taupe-iguana
+      github.com/Open-EO/openeo-processes-dask markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.slaphappy-rose-octopus.sh
+        container: qc.doc_tacky-thistle-orangutan
+  QC.Lic:
+    repos:
+      github.com/Open-EO/openeo-processes-dask licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.nippy-pumpkin-albatross.sh
+        container: qc.lic_baggy-cream-hornet
+  QC.Sec:
+    repos:
+      github.com/Open-EO/openeo-processes-dask bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.cheeky-turquoise-cow.sh
+        container: qc.sec_lanky-salmon-hamster
+  QC.Sty:
+    repos:
+      github.com/Open-EO/openeo-processes-dask flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.cranky-turquoise-flounder.sh
+        container: qc.sty_scanty-silver-hare
+      github.com/Open-EO/openeo-processes-dask jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.tasty-khaki-anteater.sh
+        container: qc.sty_squeaky-denim-coati
+  QC.Ver:
+    repos:
+      github.com/Open-EO/openeo-processes-dask get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.wiggy-cornflower-birman.sh
+        container: qc.ver_whiny-green-argentino
+timeout: 5400

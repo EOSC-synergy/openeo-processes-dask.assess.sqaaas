@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/1.7.11
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/Open-EO/openeo-processes-dask:
       branch: main
@@ -15,48 +15,54 @@ sqa_criteria:
     repos:
       github.com/Open-EO/openeo-processes-dask git:
         commands:
-        - /usr/bin/env sh .sqa/script.cranky-cerulean-dragonfly.sh
-        container: qc.acc_wimpy-linen-mouse
+        - /usr/bin/env sh .sqa/script.skimpy-corn-starfish.sh
+        container: qc.acc_messy-vermilion-flamingo
   QC.Doc:
     repos:
       github.com/Open-EO/openeo-processes-dask find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.nerdy-cobalt-emu.sh
-        container: qc.doc_foggy-jade-angora
+        - /usr/bin/env sh .sqa/script.boozy-heliotrope-wildebeest.sh
+        container: qc.doc_baggy-cerulean-gerbil
       github.com/Open-EO/openeo-processes-dask git:
         commands:
-        - /usr/bin/env sh .sqa/script.smelly-lemon-frise.sh
-        container: qc.doc_scaly-taupe-iguana
+        - /usr/bin/env sh .sqa/script.shaky-apricot-starfish.sh
+        container: qc.doc_nippy-khaki-devil
       github.com/Open-EO/openeo-processes-dask markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.slaphappy-rose-octopus.sh
-        container: qc.doc_tacky-thistle-orangutan
+        - /usr/bin/env sh .sqa/script.sickly-seashell-rottweiler.sh
+        container: qc.doc_sleepy-plum-lionfish
   QC.Lic:
     repos:
       github.com/Open-EO/openeo-processes-dask licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.nippy-pumpkin-albatross.sh
-        container: qc.lic_baggy-cream-hornet
+        - /usr/bin/env sh .sqa/script.sleepy-eggplant-robin.sh
+        container: qc.lic_snappy-wisteria-tiger
   QC.Sec:
     repos:
       github.com/Open-EO/openeo-processes-dask bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.cheeky-turquoise-cow.sh
-        container: qc.sec_lanky-salmon-hamster
+        - /usr/bin/env sh .sqa/script.scaly-platinum-booby.sh
+        container: qc.sec_scanty-alizarin-salamander
   QC.Sty:
     repos:
       github.com/Open-EO/openeo-processes-dask flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.cranky-turquoise-flounder.sh
-        container: qc.sty_scanty-silver-hare
+        - /usr/bin/env sh .sqa/script.cozy-rose-hippopotamus.sh
+        container: qc.sty_sunny-yellow-toucan
       github.com/Open-EO/openeo-processes-dask jsonlint:
         commands:
-        - /usr/bin/env sh .sqa/script.tasty-khaki-anteater.sh
-        container: qc.sty_squeaky-denim-coati
+        - /usr/bin/env sh .sqa/script.pokey-peach-frog.sh
+        container: qc.sty_snippy-zucchini-shrimp
+  QC.Uni:
+    repos:
+      github.com/Open-EO/openeo-processes-dask pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.slaphappy-russet-llama.sh
+        container: qc.uni_gamy-russet-tapir
   QC.Ver:
     repos:
       github.com/Open-EO/openeo-processes-dask get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.wiggy-cornflower-birman.sh
-        container: qc.ver_whiny-green-argentino
+        - /usr/bin/env sh .sqa/script.blurry-amaranth-gar.sh
+        container: qc.ver_cozy-razzmatazz-malamute
 timeout: 5400
